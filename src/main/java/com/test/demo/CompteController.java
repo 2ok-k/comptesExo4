@@ -23,7 +23,7 @@ public class CompteController {
     @PostMapping("/comptes/upload")
     public String uploadComptes(@RequestBody MultipartFile fichier) throws IOException {
         Reader reader = new InputStreamReader(fichier.getInputStream());
-        CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT.withDelimiter(';').withHeader("username","fullname","email","contact"));
+        CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT.withDelimiter(';').withHeader().withSkipHeaderRecord());
 
         List<Compte> comptes = new ArrayList<>();
 
